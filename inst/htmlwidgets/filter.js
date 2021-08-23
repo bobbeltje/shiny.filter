@@ -11,8 +11,8 @@ HTMLWidgets.widget({
     return {
 
       renderValue: function (x) {
-        make_filter(x, el);
-        add_listeners(el);
+        F.make_filter(x, el);
+        F.add_listeners(x, el);
       },
 
       resize: function (width, height) {
