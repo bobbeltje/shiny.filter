@@ -1,0 +1,6 @@
+.selected {
+    background-color: #b0bed9;
+}
+.filter-container li {
+    cursor: pointer;
+}

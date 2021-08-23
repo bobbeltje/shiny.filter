@@ -5,11 +5,11 @@
 #' @import htmlwidgets
 #'
 #' @export
-filter <- function(message, width = NULL, height = NULL, elementId = NULL) {
+filter <- function(values, width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
   x = list(
-    message = message
+    values = values
   )
 
   # create widget
@@ -19,7 +19,8 @@ filter <- function(message, width = NULL, height = NULL, elementId = NULL) {
     width = width,
     height = height,
     package = 'shiny.filter',
-    elementId = elementId
+    elementId = elementId,
+    dependencies = list_dependencies()
   )
 }
 
