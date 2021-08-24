@@ -6,13 +6,13 @@ HTMLWidgets.widget({
 
   factory: function (el, width, height) {
 
-    // TODO: define shared variables for this instance
+    var info = {};
 
     return {
 
       renderValue: function (x) {
         F.make_filter(x, el);
-        F.add_listeners(x, el);
+        F.add_listeners(x, el, info);
       },
 
       resize: function (width, height) {

@@ -4,3 +4,6 @@
 .filter-container li {
     cursor: pointer;
 }
+.filter-container ul {
+    user-select: none;
+}
