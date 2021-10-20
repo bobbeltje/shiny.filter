@@ -1,18 +1,20 @@
 
 F = {
 
-    make_filter: function (data, el) {
+    make_filter: function (x, el) {
         let container = F.make_container();
-        container.append(F.make_list(data.values));
+        container.append(F.make_list(x.values, x.options.selected));
         el.replaceChildren(container);
     },
 
-    make_list: function (items) {
+    make_list: function (items, selected) {
+        if (!selected) selected = [];
         let ret = document.createElement('ul');
         for (var i = 0; i < items.length; i++) {
             let li = document.createElement('li');
             li.innerText = items[i];
             li.setAttribute('data-index', i);
+            if (selected.includes(i + 1)) li.className = 'selected';
             ret.append(li)
         }
         return ret;
@@ -31,7 +33,7 @@ F = {
             if (target.tagName != 'LI') return;
 
             F.update_dom_selection(el, e, info);
-            if (HTMLWidgets.shinyMode) F.update_server_input(x.elementId, el);
+            if (HTMLWidgets.shinyMode) F.update_server_input(el);
 
             info.last = e.target.getAttribute('data-index');
         })
@@ -59,7 +61,7 @@ F = {
         }
     },
 
-    update_server_input: function (id, el) {
+    update_server_input: function (el) {
         let arr = [];
         let items = el.querySelectorAll('li');
         for (var i = 0; i < items.length; i++) {

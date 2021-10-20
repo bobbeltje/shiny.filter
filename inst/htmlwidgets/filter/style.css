@@ -3,7 +3,13 @@
 }
 .filter-container li {
     cursor: pointer;
+    /* border: 1px solid transparent; /* uncomment to not shift items on hover */
+}
+.filter-container li:hover {
+    border: 1px solid #d0d0d0;
 }
 .filter-container ul {
     user-select: none;
+    list-style-type: none;
+    padding: 5px;
 }

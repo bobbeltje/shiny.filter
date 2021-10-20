@@ -5,11 +5,12 @@
 #' @import htmlwidgets
 #'
 #' @export
-filter <- function(values, width = NULL, height = NULL, elementId = NULL) {
+filter <- function(values, options=list(), width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
   x = list(
-    values = values
+    values = values,
+    options=options
   )
 
   # create widget
