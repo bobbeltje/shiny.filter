@@ -9,6 +9,7 @@ F = {
 
     make_list: function (items, selected) {
         if (!selected) selected = [];
+        if (typeof selected == 'number') selected = [selected];
         let ret = document.createElement('ul');
         for (var i = 0; i < items.length; i++) {
             let li = document.createElement('li');
@@ -65,7 +66,7 @@ F = {
         let arr = [];
         let items = el.querySelectorAll('li');
         for (var i = 0; i < items.length; i++) {
-            if (items[i].classList.contains('selected')) arr.push(i);
+            if (items[i].classList.contains('selected')) arr.push(i + 1);
         }
 
         Shiny.setInputValue(el.id + '_selected', arr);
